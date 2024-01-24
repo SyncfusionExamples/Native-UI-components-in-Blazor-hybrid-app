@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiBlazorHybridApp"
+             xmlns:pages="clr-namespace:MauiBlazorHybridApp.Components.Pages"
+             x:Class="MauiBlazorHybridApp.MainPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <BlazorWebView Grid.Row="0" Grid.Column="0" HostPage="wwwroot/index.html">
+            <BlazorWebView.RootComponents>
+                <RootComponent Selector="#app" ComponentType="{x:Type pages:Home}" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+        <BlazorWebView Grid.Row="0" Grid.Column="1" HostPage="wwwroot/index.html">
+            <BlazorWebView.RootComponents>
+                <RootComponent Selector="#app" ComponentType="{x:Type pages:Counter}" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+        <BlazorWebView Grid.Row="1" Grid.Column="0" HostPage="wwwroot/index.html">
+            <BlazorWebView.RootComponents>
+                <RootComponent Selector="#app" ComponentType="{x:Type pages:Weather}" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+        <BlazorWebView Grid.Row="1" Grid.Column="1" HostPage="wwwroot/index.html">
+            <BlazorWebView.RootComponents>
+                <RootComponent Selector="#app" ComponentType="{x:Type pages:Area}" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,68 @@
+﻿@page "/"
+
+
+@using Syncfusion.Blazor.Charts
+
+<SfChart Title="Sales - Yearly Performance" @ref="chart1" Width="@Width" Height="@Height">
+    <ChartArea>
+        <ChartAreaBorder Width="0"></ChartAreaBorder>
+    </ChartArea>
+    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">
+        <ChartAxisMajorGridLines Width="0"></ChartAxisMajorGridLines>
+        <ChartAxisLabelStyle Size="11px"></ChartAxisLabelStyle>
+    </ChartPrimaryXAxis>
+    <ChartPrimaryYAxis Minimum="0" Maximum="100" LabelFormat="{value}%">
+        <ChartAxisMajorTickLines Width="0"></ChartAxisMajorTickLines>
+        <ChartAxisLineStyle Width="0"></ChartAxisLineStyle>
+        <ChartAxisLabelStyle Size="11px"></ChartAxisLabelStyle>
+        <ChartAxisTitleStyle Size="13px"></ChartAxisTitleStyle>
+    </ChartPrimaryYAxis>
+    <ChartSeriesCollection>
+        <ChartSeries DataSource="@ColumnChartDataCollection" Name="Online" Fill="#2485FA" XName="Period" YName="Percentage" Type="ChartSeriesType.Column">
+            <ChartMarker>
+                <ChartDataLabel Visible="true" Position="LabelPosition.Middle" Name="TextMapping">
+                    <ChartDataLabelFont Color="#FFFFFF"></ChartDataLabelFont>
+                </ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+        <ChartSeries DataSource="@ColumnChartData" Fill="#FEC200" Name="Retail" XName="Period" YName="Percentage" Type="ChartSeriesType.Column">
+            <ChartMarker>
+                <ChartDataLabel Visible="true" Position="LabelPosition.Middle" Name="TextMapping">
+                    <ChartDataLabelFont Color="#FFFFFF"></ChartDataLabelFont>
+                </ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+    </ChartSeriesCollection>
+</SfChart>
+
+@code {
+    SfChart chart1;
+    string Width = "100%";
+    string Height = "100%";
+    public List<ChartData> ColumnChartDataCollection { get; set; } = new List<ChartData>
+    {
+        new ChartData { Period = "2017", Percentage = 60, TextMapping = "60%" },
+        new ChartData { Period = "2018", Percentage = 56, TextMapping = "56%"},
+        new ChartData { Period = "2019", Percentage = 71, TextMapping = "71%" },
+        new ChartData { Period = "2020", Percentage = 85, TextMapping = "85%" },
+        new ChartData { Period = "2021", Percentage = 73, TextMapping = "73%" },
+    };
+    public List<ChartData> ColumnChartData { get; set; } = new List<ChartData>
+    {
+        new ChartData { Period = "2017", Percentage = 40, TextMapping = "40%" },
+        new ChartData { Period = "2018", Percentage = 44, TextMapping = "44%"},
+        new ChartData { Period = "2019", Percentage = 29, TextMapping = "29%" },
+        new ChartData { Period = "2020", Percentage = 15, TextMapping = "15%" },
+        new ChartData { Period = "2021", Percentage = 27, TextMapping = "27%" },
+    };
+    public class ChartData
+    {
+        public string Period { get; set; }
+        public string Product { get; set; }
+        public double Percentage { get; set; }
+        public string TextMapping { get; set; }
+        public string AnnotationX { get; set; }
+        public string AnnotationY { get; set; }
+        public string PointColor { get; set; }
+    }
+}

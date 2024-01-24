@@ -1,0 +1,89 @@
+﻿@page "/counter"
+
+@using Syncfusion.Blazor.Charts
+
+
+
+<SfAccumulationChart Title="roduct Wise Sales - 2021" EnableAnimation="true" Width="@Width" Height="@Height" EnableBorderOnMouseMove="false" EnableSmartLabels="true">
+
+    <AccumulationChartBorder Color="transparent"></AccumulationChartBorder>
+
+    <AccumulationChartTooltipSettings Enable="true" Format="${point.x}"></AccumulationChartTooltipSettings>
+
+    <AccumulationChartSeriesCollection>
+
+        <AccumulationChartSeries DataSource="@PieChartDataCollection" Radius="@Radius" XName="Product" YName="Percentage" InnerRadius="40%" Palettes="@palettes">
+
+            <AccumulationChartSeriesBorder Color="@Color" Width="3"></AccumulationChartSeriesBorder>
+
+            <AccumulationDataLabelSettings Visible="true" Name="TextMapping" Position="AccumulationLabelPosition.Outside">
+
+                <AccumulationChartConnector Length="10px" Type="ConnectorType.Curve"></AccumulationChartConnector>
+
+            </AccumulationDataLabelSettings>
+
+        </AccumulationChartSeries>
+
+    </AccumulationChartSeriesCollection>
+
+    <AccumulationChartLegendSettings Visible="false"></AccumulationChartLegendSettings>
+
+</SfAccumulationChart>
+
+
+
+@code {
+
+    string Width = "100%";
+
+    string Height = "100%";
+
+    string Radius = "80%";
+
+    string Color;
+
+    private string[] palettes = new string[] { "#61EFCD", "#CDDE1F", "#FEC200", "#CA765A", "#2485FA", "#F57D7D", "#C152D2",
+
+    "#8854D9", "#3D4EB8", "#00BCD7","#4472c4", "#ed7d31", "#ffc000", "#70ad47", "#5b9bd5", "#c1c1c1", "#6f6fe2", "#e269ae", "#9e480e", "#997300" };
+
+
+
+    public List<ChartData> PieChartDataCollection { get; set; } = new List<ChartData>
+
+    {
+
+        new ChartData { Product = "TV : 30 (12%)", Percentage = 12, TextMapping = "TV, 30 <br/>12%"},
+
+        new ChartData { Product = "PC : 20 (8%)", Percentage = 8, TextMapping = "PC, 20 <br/>8%"},
+
+        new ChartData { Product = "Laptop : 40 (16%)",  Percentage = 16, TextMapping = "Laptop, 40 <br/>16%"},
+
+        new ChartData { Product = "Mobile : 90 (36%)", Percentage = 36, TextMapping = "Mobile, 90 <br/>36%"},
+
+        new ChartData { Product = "Camera : 27 (11%)", Percentage = 11, TextMapping = "Camera, 27 <br/>11%"}
+
+    };
+
+
+
+    public class ChartData
+
+    {
+
+        public string Period { get; set; }
+
+        public string Product { get; set; }
+
+        public double Percentage { get; set; }
+
+        public string TextMapping { get; set; }
+
+        public string AnnotationX { get; set; }
+
+        public string AnnotationY { get; set; }
+
+        public string PointColor { get; set; }
+
+    }
+
+} 
