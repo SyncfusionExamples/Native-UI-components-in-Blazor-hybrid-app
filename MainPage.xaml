@@ -17,22 +17,22 @@
         </Grid.ColumnDefinitions>
         <BlazorWebView Grid.Row="0" Grid.Column="0" HostPage="wwwroot/index.html">
             <BlazorWebView.RootComponents>
-                <RootComponent Selector="#app" ComponentType="{x:Type pages:Home}" />
+                <RootComponent Selector="#app" ComponentType="{x:Type pages:ColumnChart}" />
             </BlazorWebView.RootComponents>
         </BlazorWebView>
         <BlazorWebView Grid.Row="0" Grid.Column="1" HostPage="wwwroot/index.html">
             <BlazorWebView.RootComponents>
-                <RootComponent Selector="#app" ComponentType="{x:Type pages:Counter}" />
+                <RootComponent Selector="#app" ComponentType="{x:Type pages:AccumulationChart}" />
             </BlazorWebView.RootComponents>
         </BlazorWebView>
         <BlazorWebView Grid.Row="1" Grid.Column="0" HostPage="wwwroot/index.html">
             <BlazorWebView.RootComponents>
-                <RootComponent Selector="#app" ComponentType="{x:Type pages:Weather}" />
+                <RootComponent Selector="#app" ComponentType="{x:Type pages:SplineChart}" />
             </BlazorWebView.RootComponents>
         </BlazorWebView>
         <BlazorWebView Grid.Row="1" Grid.Column="1" HostPage="wwwroot/index.html">
             <BlazorWebView.RootComponents>
-                <RootComponent Selector="#app" ComponentType="{x:Type pages:Area}" />
+                <RootComponent Selector="#app" ComponentType="{x:Type pages:AreaChart}" />
             </BlazorWebView.RootComponents>
         </BlazorWebView>
     </Grid>
